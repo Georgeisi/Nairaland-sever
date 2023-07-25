@@ -6,6 +6,7 @@ from .serializer import BlogSerializer
 from.models import BlogPost
 from rest_framework import status
 from rest_framework.pagination import PageNumberPagination
+
 # Create your views here.
 @api_view(['POST','GET'])
 @permission_classes([IsAuthenticated])
@@ -77,4 +78,21 @@ def user_stories(request):
 
     return Response(data=serializer.data, status=status.HTTP_200_OK)      
 
+
+@api_view(['GET'])
+def isTrendingView(request):
+    if request.method=='GET':
+        story= BlogPost.objects.filter(is_trending=True)
+        serializer = BlogSerializer(story, many=True , partial=True)
+        return Response(data=serializer.data,status=status.HTTP_200_OK)
+
+
+
+
+@api_view(['GET'])
+def LatestView(request):
+    if request.method=='GET':
+        latest=BlogPost.objects.all().order_by('created_at')
+        serializer = BlogSerializer(latest,many=True)
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
 

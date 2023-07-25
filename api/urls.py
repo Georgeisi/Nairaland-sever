@@ -8,6 +8,8 @@ urlpatterns=[
     path('create/',views.create_post),
     path('stories/',views.get_post),
     path('user/',views.user_stories),
-    path('edit/<int:pk>/',views.update_post)
+    path('trending/' , views.isTrendingView),
+    path('latest/',views.LatestView),
+    path('edit/<int:pk>/',views.update_post),
 
 ]

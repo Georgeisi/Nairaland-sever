@@ -9,4 +9,12 @@ class BlogPost(models.Model):
     tags = models.CharField(max_length=10,null=False) 
     created_at = models.DateField(auto_now_add=True)  
     story = models.TextField(null=False)
+    is_trending= models.BooleanField(default=False)
+
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        ordering= ['created_at']
     
