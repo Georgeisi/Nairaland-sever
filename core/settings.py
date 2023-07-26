@@ -15,6 +15,10 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 import environ
 
 env=environ.Env()
@@ -48,6 +52,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'djoser',
     "corsheaders",
+    'cloudinary',
 ]
 
 REST_FRAMEWORK = {
@@ -167,3 +172,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+cloudinary.config(
+    cloud_name='dof7bydih',
+    api_key='843644268447129',
+    api_secret='ykGvzorlEzfYrKgdOxMdme0lu_Y',
+)
