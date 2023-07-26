@@ -7,3 +7,4 @@ class BlogSerializer(serializers.ModelSerializer):
         model=BlogPost
         fields='__all__'
         depth=2
+    
